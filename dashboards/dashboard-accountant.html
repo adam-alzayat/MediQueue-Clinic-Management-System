@@ -38,9 +38,9 @@
           <div id="finance-summary" class="summary-grid"></div>
         </article>
         <article class="card">
-          <div class="split-line"><h2>Expense category breakdown</h2><button class="btn small ghost" data-expand-target="expense-details" type="button">Show Details</button></div>
+          <div class="split-line"><h2>Expense category breakdown</h2><button class="btn small ghost" data-expense-toggle="details" type="button" aria-controls="expense-details" aria-expanded="false">Show Details</button></div>
           <div id="expense-breakdown" class="breakdown-list"></div>
-          <div id="expense-details" class="detail-list" hidden></div>
+          <div id="expense-details" class="detail-list collapse-panel" aria-hidden="true"></div>
         </article>
       </section>
 

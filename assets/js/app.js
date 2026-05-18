@@ -10,6 +10,7 @@
     customization: "mq_customization",
     indexQueue: "mq_index_queue",
     activity: "mq_activity_log",
+    uiState: "mq_ui_state",
   };
 
   const money = (value) => `$${Number(value || 0).toLocaleString()}`;
@@ -51,6 +52,7 @@
   const expenses = () => read(STORAGE.expenses, data().expenses);
   const payrollStatuses = () => read(STORAGE.payroll, data().payroll);
   const notifications = () => read(STORAGE.notifications, data().notifications);
+  const uiState = () => read(STORAGE.uiState, {});
   const activityLog = () => read(STORAGE.activity, [
     { id: "act-1", type: "Queue", message: "Urgent queue prioritization reviewed", createdAt: "08:45" },
     { id: "act-2", type: "Booking", message: "Cardiology slot capacity reached at 11:00", createdAt: "09:20" },
@@ -84,6 +86,10 @@
 
   function logActivity(type, message) {
     write(STORAGE.activity, [{ id: uid("act"), type, message, createdAt: timeLabel() }, ...activityLog()].slice(0, 12));
+  }
+
+  function setUiState(key, value) {
+    write(STORAGE.uiState, { ...uiState(), [key]: value });
   }
 
   function allAppointments() {
@@ -1037,6 +1043,7 @@
           </div>
         `;
       }).join("");
+      applyExpenseDetailsState();
     }
     const financeSummary = byId("finance-summary");
     if (financeSummary) {
@@ -1078,6 +1085,29 @@
       renderAccountantDashboard();
     };
     byId("expense-date").value = today();
+  }
+
+  function applyExpenseDetailsState() {
+    const details = byId("expense-details");
+    const button = document.querySelector('[data-expense-toggle="details"]');
+    if (!details || !button) return;
+    const isOpen = uiState().expenseDetailsOpen === true;
+    details.hidden = false;
+    details.classList.toggle("is-open", isOpen);
+    details.setAttribute("aria-hidden", String(!isOpen));
+    button.textContent = isOpen ? "Hide Details" : "Show Details";
+    button.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  function initExpenseDetailsToggle() {
+    const button = document.querySelector('[data-expense-toggle="details"]');
+    if (!button) return;
+    button.onclick = () => {
+      const nextOpen = uiState().expenseDetailsOpen !== true;
+      setUiState("expenseDetailsOpen", nextOpen);
+      applyExpenseDetailsState();
+    };
+    applyExpenseDetailsState();
   }
 
   function initLogin() {
@@ -1128,6 +1158,7 @@
         button.textContent = target.hidden ? "Show Details" : "Hide Details";
       };
     });
+    initExpenseDetailsToggle();
   }
 
   document.addEventListener("DOMContentLoaded", () => {

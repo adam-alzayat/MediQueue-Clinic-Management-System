@@ -745,6 +745,23 @@ th {
   gap: 12px;
 }
 
+.collapse-panel {
+  display: grid;
+  gap: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.24s ease, opacity 0.18s ease, margin-top 0.22s ease;
+}
+
+.collapse-panel.is-open {
+  gap: 12px;
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
 .activity-item,
 .management-row {
   display: grid;
