@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediQueue | Smart Clinic Management</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a data-active href="index.html">Home</a>
+        <a data-active href="services.html">Services</a>
+        <a data-active href="booking.html">Booking</a>
+        <a data-active href="queue.html">Queue</a>
+        <a data-active href="login.html">Demo Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Healthcare SaaS MVP</span>
+          <h1 data-clinic-name>Cedar Care Clinic</h1>
+          <p class="lead" data-hero-tagline>Smart clinic booking, queue, and management platform.</p>
+          <p>Give patients a smoother visit while clinic teams manage capacity, queues, billing, payroll, and daily operations from one clean dashboard experience.</p>
+          <div class="button-row">
+            <a class="btn primary" href="booking.html">Book Appointment</a>
+            <a class="btn secondary" href="queue.html">Join Queue</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Clinic queue preview">
+          <div class="clinic-board">
+            <div class="board-header">
+              <div>
+                <span class="eyebrow">Live clinic board</span>
+                <h2>Today at <span data-clinic-name>Cedar Care Clinic</span></h2>
+              </div>
+              <span class="badge live">Live</span>
+            </div>
+            <div id="live-queue-preview" class="clinic-board"></div>
+            <div class="button-row">
+              <button class="btn small" id="home-call-next" type="button">Call Next</button>
+              <button class="btn small secondary" id="home-add-urgent" type="button">Add Urgent Patient</button>
+              <button class="btn small ghost" id="home-mark-served" type="button">Mark Served</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div id="promo-banners" class="promo-grid" hidden></div>
+        <div id="home-live-stats" class="stat-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Platform overview</span>
+          <h2>Built around real clinic workflows</h2>
+          <p>MediQueue connects appointment scheduling, waiting room triage, role-based dashboards, payment status, payroll calculations, and notifications using browser storage and realistic mock data.</p>
+        </div>
+        <div id="home-feature-grid" class="grid feature-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>A simple patient flow that clinics can manage</h2>
+        </div>
+        <div class="grid feature-grid">
+          <article class="card step-card"><span class="queue-number">1</span><h3>Browse services</h3><p>Patients compare duration, pricing, wait time, and available doctors.</p></article>
+          <article class="card step-card"><span class="queue-number">2</span><h3>Book or join queue</h3><p>The platform checks capacity and creates booking references or queue tickets.</p></article>
+          <article class="card step-card"><span class="queue-number">3</span><h3>Track status live</h3><p>Dashboards show appointments, queue position, notifications, and operational updates.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container dashboard-grid">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Featured services</span>
+            <h2>High-demand clinic services</h2>
+          </div>
+          <div id="featured-services" class="grid feature-grid"></div>
+        </div>
+        <aside class="card">
+          <h2>Notification preview</h2>
+          <div id="notification-preview" class="notice-list"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">MediQueue MVP <span data-year></span> - frontend-only portfolio project.</div>
+  </footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

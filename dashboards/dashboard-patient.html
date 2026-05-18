@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard | MediQueue</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="dashboard-shell" id="patient-dashboard">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav aria-label="Dashboard navigation">
+        <a class="active" href="dashboard-patient.html">Patient Dashboard</a>
+        <a href="../booking.html">Book Appointment</a>
+        <a href="../queue.html">Queue Ticket</a>
+        <a href="../login.html">Switch Role</a>
+        <a href="../index.html">Public Site</a>
+      </nav>
+    </aside>
+    <main class="dashboard-main">
+      <header class="dashboard-head">
+        <div>
+          <span class="eyebrow">Patient workspace</span>
+          <h1>Welcome back, Adam</h1>
+          <p>Appointments, queue status, notifications, visit history, and notes in one place.</p>
+        </div>
+        <a class="btn primary" href="../booking.html">New Booking</a>
+      </header>
+
+      <section id="patient-stats" class="stat-grid"></section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Profile summary</h2>
+          <div id="patient-profile"></div>
+        </article>
+        <article class="card">
+          <h2>Upcoming appointment card</h2>
+          <div id="upcoming-card"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Upcoming appointments</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Time</th><th>Patient</th><th>Service</th><th>Doctor</th><th>Status</th></tr></thead>
+              <tbody id="patient-appointments"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Queue tracking widget</h2>
+          <div id="patient-queue-widget"></div>
+          <h3>Queue status</h3>
+          <div id="queue-status-card"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Patient history</h2>
+          <div id="patient-history" class="timeline"></div>
+        </article>
+        <article class="card">
+          <div class="split-line"><h2>Notification center</h2><button class="btn small ghost" data-expand-target="notifications-panel" type="button">Hide Details</button></div>
+          <div id="notifications-panel" class="notice-list"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

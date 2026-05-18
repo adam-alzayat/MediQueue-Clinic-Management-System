@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Queue | MediQueue</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a data-active href="index.html">Home</a>
+        <a data-active href="services.html">Services</a>
+        <a data-active href="booking.html">Booking</a>
+        <a data-active href="queue.html">Queue</a>
+        <a data-active href="login.html">Demo Login</a>
+      </nav>
+    </div>
+  </header>
+  <main class="section">
+    <div class="container form-layout">
+      <section class="card">
+        <span class="eyebrow">Live queue</span>
+        <h1>Join the waiting room</h1>
+        <p>Urgent tickets are prioritized ahead of normal tickets while preserving join order inside each priority group.</p>
+        <form id="queue-form" class="form-grid">
+          <div class="field"><label for="queue-name">Name</label><input id="queue-name" required placeholder="Patient name"></div>
+          <div class="field"><label for="queue-service">Service</label><select id="queue-service" required></select></div>
+          <div class="field full"><label for="queue-priority">Priority</label><select id="queue-priority"><option value="normal">Normal</option><option value="urgent">Urgent</option></select></div>
+          <div class="full"><button class="btn primary" type="submit">Generate Ticket</button></div>
+        </form>
+        <div id="queue-result" hidden></div>
+      </section>
+      <aside class="card">
+        <div class="split-line">
+          <h2>Current queue</h2>
+          <span class="badge info">Sorted live</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Ticket</th><th>Name</th><th>Service</th><th>Priority</th><th>Position</th><th>ETA</th></tr></thead>
+            <tbody id="queue-list"></tbody>
+          </table>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
