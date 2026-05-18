@@ -532,9 +532,16 @@
         <td>${serviceById(appointment.serviceId).name}</td>
         <td>${doctorById(appointment.doctorId).name}</td>
         <td><span class="badge ${appointment.status === "completed" ? "success" : "info"}">${appointment.status}</span></td>
-        ${actions ? `<td><button class="btn small" data-complete="${appointment.id}">Complete</button></td>` : ""}
+        ${actions ? `<td>${appointmentActionButton(appointment)}</td>` : ""}
       </tr>
     `).join("");
+  }
+
+  function appointmentActionButton(appointment) {
+    if (appointment.status === "completed") {
+      return `<button class="btn small complete" type="button" disabled>Completed</button>`;
+    }
+    return `<button class="btn small" data-complete="${appointment.id}" type="button">Complete</button>`;
   }
 
   function renderPatientDashboard() {
@@ -631,8 +638,13 @@
     document.querySelectorAll("[data-complete]").forEach((button) => {
       button.addEventListener("click", () => {
         const id = button.dataset.complete;
+        if (completedIds().includes(id)) return;
+        button.disabled = true;
+        button.classList.add("complete");
+        button.textContent = "Completed";
         write(STORAGE.completed, [...new Set([...completedIds(), id])]);
         addNotification("patient", "Appointment completed. Doctor notes will appear in your history.", "success");
+        showMessage("appointment-result", "Appointment marked as completed.", "success");
         renderDoctorDashboard();
       });
     });
