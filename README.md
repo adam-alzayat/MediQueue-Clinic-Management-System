@@ -137,22 +137,22 @@ MediQueue/
 ## Screenshots
 
 ### Homepage
-![Homepage](assets/images/Home%201.png)
+![Homepage](assets/images/homepage-hero.png)
 
 ### Booking Page
-![Booking](assets/images/Booking.png)
+![Booking](assets/images/booking-page.png)
 
 ### Queue System
-![Queue](assets/images/Queue.png)
+![Queue](assets/images/queue-system.png)
 
 ### Patient Dashboard
-![Patient](assets/images/pt1.png)
+![Patient](assets/images/patient-dashboard.png)
 
 ### Doctor Dashboard
-![Doctor](assets/images/Doc1.png)
+![Doctor](assets/images/doctor-dashboard1.png)
 
 ### Admin Dashboard
-![Admin](assets/images/Admin%201.png)
+![Admin](assets/images/admin-dashboard-1.png)
 
 ### Accountant Dashboard
-![Accountant](assets/images/Accountant1.png)
+![Accountant](assets/images/accountant-dashboard-1.png)
