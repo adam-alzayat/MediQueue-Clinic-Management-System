@@ -1,6 +1,6 @@
 # MediQueue
 
-MediQueue is a smart clinic booking, queue, and management platform MVP. The current UI is a realistic healthcare SaaS frontend using HTML, CSS, JavaScript, mock data, and localStorage. A simple independent Node.js/Express backend foundation is also included for future API integration.
+MediQueue is a full-stack clinic booking, queue, and management platform MVP built with HTML, CSS, JavaScript, Node.js, and Express.js. The platform simulates a modern healthcare SaaS application with appointment scheduling, live queue tracking, role-based dashboards, analytics, notifications, and persistent booking workflows powered by a backend REST API.
 
 ## Features
 
@@ -30,6 +30,9 @@ MediQueue is a smart clinic booking, queue, and management platform MVP. The cur
 - Node.js
 - Express
 - CORS
+- Node.js
+- Express.js
+- REST API
 
 No React, frontend framework, database, or authentication system is used yet.
 
@@ -144,6 +147,15 @@ Available API routes:
 - `GET /api/patients`
 - `GET /api/finance`
 - `PATCH /api/finance/payroll/:id/status`
+
+## Backend Features
+
+- Express.js REST API
+- Persistent appointment booking workflow
+- API-based frontend data loading
+- Booking validation and duplicate prevention
+- JSON-based data persistence
+- Backend fallback support for frontend resilience
 
 ## Future Improvements
 
