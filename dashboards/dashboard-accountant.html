@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accountant Dashboard | MediQueue</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="dashboard-shell" id="accountant-dashboard">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav aria-label="Dashboard navigation">
+        <a class="active" href="dashboard-accountant.html">Accountant Dashboard</a>
+        <a href="dashboard-admin.html">Admin View</a>
+        <a href="dashboard-doctor.html">Doctor View</a>
+        <a href="../login.html">Switch Role</a>
+        <a href="../index.html">Public Site</a>
+      </nav>
+    </aside>
+    <main class="dashboard-main">
+      <header class="dashboard-head">
+        <div>
+          <span class="eyebrow">Finance workspace</span>
+          <h1>Revenue, billing, and payroll</h1>
+          <p>Simulated finance operations for payments, expenses, doctor revenue, and salary approval.</p>
+        </div>
+        <span class="badge warning">No real transfers</span>
+      </header>
+
+      <section id="accountant-stats" class="stat-grid"></section>
+
+      <section id="payroll-cards" class="stat-grid"></section>
+
+      <section class="dashboard-grid equal">
+        <article class="card">
+          <div class="split-line"><h2>Monthly finance summary</h2><button class="btn small ghost" data-expand-target="finance-detail-sections" type="button">Show Details</button></div>
+          <div id="finance-summary" class="summary-grid"></div>
+        </article>
+        <article class="card">
+          <div class="split-line"><h2>Expense category breakdown</h2><button class="btn small ghost" data-expense-toggle="details" type="button" aria-controls="expense-details" aria-expanded="false">Show Details</button></div>
+          <div id="expense-breakdown" class="breakdown-list"></div>
+          <div id="expense-details" class="detail-list collapse-panel" aria-hidden="true"></div>
+        </article>
+      </section>
+
+      <section id="finance-detail-sections" class="dashboard-grid equal" hidden>
+        <article class="card">
+          <h2>Appointment billing status</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Reference</th><th>Patient</th><th>Service</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody id="billing-status"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Revenue by doctor</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Doctor</th><th>Specialty</th><th>Revenue</th></tr></thead>
+              <tbody id="revenue-doctor"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Paid vs unpaid appointments</h2>
+          <div id="payment-summary" class="summary-grid"></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Status</th><th>Appointments</th><th>Amount</th></tr></thead>
+              <tbody id="payment-status-table"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid equal">
+        <article class="card">
+          <h2>Revenue by service</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Service</th><th>Revenue</th><th>Wait</th></tr></thead>
+              <tbody id="revenue-service"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Add expense</h2>
+          <form id="expense-form" class="form-grid">
+            <div class="field"><label for="expense-date">Date</label><input id="expense-date" type="date"></div>
+            <div class="field"><label for="expense-category">Category</label><select id="expense-category"><option>Medical supplies</option><option>Rent</option><option>Software</option><option>Utilities</option><option>Maintenance</option></select></div>
+            <div class="field full"><label for="expense-description">Description</label><input id="expense-description" required placeholder="Expense description"></div>
+            <div class="field"><label for="expense-amount">Amount</label><input id="expense-amount" type="number" min="1" required placeholder="250"></div>
+            <div class="field"><label>&nbsp;</label><button class="btn primary" type="submit">Add Expense</button></div>
+          </form>
+          <div id="expense-result" hidden></div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Payroll and doctor revenue</h2>
+        <div id="payroll-result" hidden></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Doctor</th><th>Completed</th><th>Revenue</th><th>Base salary</th><th>Bonus</th><th>Total salary</th><th>Available</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="payroll-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Monthly expense table</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th></tr></thead>
+            <tbody id="expenses-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

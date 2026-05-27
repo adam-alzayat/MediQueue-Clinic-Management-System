@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard | MediQueue</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="dashboard-shell" id="doctor-dashboard">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav aria-label="Dashboard navigation">
+        <a class="active" href="dashboard-doctor.html">Doctor Dashboard</a>
+        <a href="dashboard-patient.html">Patient View</a>
+        <a href="dashboard-admin.html">Admin View</a>
+        <a href="../login.html">Switch Role</a>
+        <a href="../index.html">Public Site</a>
+      </nav>
+    </aside>
+    <main class="dashboard-main">
+      <header class="dashboard-head">
+        <div>
+          <span class="eyebrow">Doctor workflow</span>
+          <h1>Dr. Maya Haddad</h1>
+          <p>Review today's schedule, mark appointments as completed, and add clinical notes.</p>
+        </div>
+        <span class="badge success">Room 201 active</span>
+      </header>
+
+      <section id="doctor-stats" class="stat-grid"></section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Today's appointments</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Time</th><th>Patient</th><th>Service</th><th>Doctor</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody id="doctor-appointments"></tbody>
+            </table>
+          </div>
+          <div id="appointment-result" hidden></div>
+        </article>
+        <article class="card">
+          <h2>Next patient</h2>
+          <div id="next-patient"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Appointment timeline</h2>
+          <div id="appointment-timeline" class="timeline"></div>
+        </article>
+        <article class="card">
+          <div class="split-line"><h2>Doctor notes section</h2><button class="btn small ghost" data-expand-target="doctor-notes-preview" type="button">Hide Details</button></div>
+          <div id="doctor-notes-preview" class="notice-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Add doctor notes</h2>
+          <form id="doctor-note-form" class="form-grid">
+            <div class="field"><label for="note-email">Patient email</label><input id="note-email" type="email" required placeholder="adam.khalil@example.com"></div>
+            <div class="field"><label for="note-service">Service</label><select id="note-service" required></select></div>
+            <div class="field full"><label for="note-text">Doctor notes</label><textarea id="note-text" required placeholder="Clinical observations and treatment notes"></textarea></div>
+            <div class="field full"><label for="note-followup">Follow-up recommendation</label><input id="note-followup" required placeholder="Follow-up plan"></div>
+            <div class="full"><button class="btn primary" type="submit">Save Note</button></div>
+          </form>
+          <div id="note-result" hidden></div>
+        </article>
+        <article class="card">
+          <h2>Patient history preview</h2>
+          <div id="doctor-history" class="timeline"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

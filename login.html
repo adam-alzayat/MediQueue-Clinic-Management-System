@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Login | MediQueue</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a data-active href="index.html">Home</a>
+        <a data-active href="services.html">Services</a>
+        <a data-active href="booking.html">Booking</a>
+        <a data-active href="queue.html">Queue</a>
+        <a data-active href="login.html">Demo Login</a>
+      </nav>
+    </div>
+  </header>
+  <main class="section">
+    <div class="container form-layout">
+      <section class="card">
+        <span class="eyebrow">Demo access</span>
+        <h1>Choose a dashboard role</h1>
+        <p>No password is required. This page simulates role-based routing for the frontend MVP.</p>
+        <form id="login-form" class="form-grid">
+          <div class="field full">
+            <label for="login-role">Role</label>
+            <select id="login-role">
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+              <option value="admin">Admin</option>
+              <option value="accountant">Accountant</option>
+            </select>
+          </div>
+          <div class="full"><button class="btn primary" type="submit">Open Dashboard</button></div>
+        </form>
+      </section>
+      <aside class="card">
+        <h2>Included dashboards</h2>
+        <p>Patient care status, doctor workflow, admin operations, and accountant finance tools are separated into realistic role screens.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

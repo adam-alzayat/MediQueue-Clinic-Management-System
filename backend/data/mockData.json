@@ -1,0 +1,373 @@
+{
+  "services": [
+    {
+      "id": "general",
+      "name": "General Consultation",
+      "description": "Primary care visit for diagnosis, prescriptions, referrals, and follow-up planning.",
+      "duration": 30,
+      "price": 45,
+      "avgWait": 18,
+      "doctorIds": [
+        "d1",
+        "d2",
+        "d4"
+      ],
+      "capacity": 2
+    },
+    {
+      "id": "cardiology",
+      "name": "Cardiology Checkup",
+      "description": "Heart health assessment including ECG review, blood pressure, and care guidance.",
+      "duration": 45,
+      "price": 95,
+      "avgWait": 28,
+      "doctorIds": [
+        "d3"
+      ],
+      "capacity": 1
+    },
+    {
+      "id": "pediatrics",
+      "name": "Pediatrics Visit",
+      "description": "Child wellness, vaccines, minor illness treatment, and parent care recommendations.",
+      "duration": 30,
+      "price": 55,
+      "avgWait": 16,
+      "doctorIds": [
+        "d2"
+      ],
+      "capacity": 2
+    },
+    {
+      "id": "dermatology",
+      "name": "Dermatology Review",
+      "description": "Skin condition assessment, treatment plans, acne care, and follow-up tracking.",
+      "duration": 30,
+      "price": 70,
+      "avgWait": 22,
+      "doctorIds": [
+        "d4"
+      ],
+      "capacity": 1
+    },
+    {
+      "id": "lab",
+      "name": "Lab Test Package",
+      "description": "Basic blood panel, cholesterol profile, glucose check, and digital result handoff.",
+      "duration": 20,
+      "price": 35,
+      "avgWait": 12,
+      "doctorIds": [
+        "d1",
+        "d5"
+      ],
+      "capacity": 3
+    }
+  ],
+  "doctors": [
+    {
+      "id": "d1",
+      "name": "Dr. Maya Haddad",
+      "specialty": "Family Medicine",
+      "room": "Room 201",
+      "active": true,
+      "baseSalary": 2300,
+      "commissionRate": 0.08
+    },
+    {
+      "id": "d2",
+      "name": "Dr. Omar Nasser",
+      "specialty": "Pediatrics",
+      "room": "Room 204",
+      "active": true,
+      "baseSalary": 2450,
+      "commissionRate": 0.09
+    },
+    {
+      "id": "d3",
+      "name": "Dr. Lina Mansour",
+      "specialty": "Cardiology",
+      "room": "Room 302",
+      "active": true,
+      "baseSalary": 3200,
+      "commissionRate": 0.11
+    },
+    {
+      "id": "d4",
+      "name": "Dr. Karim Sayegh",
+      "specialty": "Dermatology",
+      "room": "Room 207",
+      "active": true,
+      "baseSalary": 2700,
+      "commissionRate": 0.1
+    },
+    {
+      "id": "d5",
+      "name": "Nurse Rima Farah",
+      "specialty": "Clinical Lab",
+      "room": "Lab 1",
+      "active": true,
+      "baseSalary": 1600,
+      "commissionRate": 0.04
+    }
+  ],
+  "patients": [
+    {
+      "id": "p1",
+      "name": "Adam Khalil",
+      "email": "adam.khalil@example.com",
+      "phone": "+961 70 123 456",
+      "history": [
+        {
+          "date": "2026-04-10",
+          "serviceId": "general",
+          "doctorId": "d1",
+          "notes": "Seasonal allergies. Recommended antihistamine and hydration.",
+          "followUp": "Follow up if symptoms continue for more than two weeks."
+        },
+        {
+          "date": "2026-05-06",
+          "serviceId": "lab",
+          "doctorId": "d5",
+          "notes": "CBC and lipid panel completed. Results within normal range.",
+          "followUp": "Repeat annual blood work next year."
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "name": "Sara Haddad",
+      "email": "sara.haddad@example.com",
+      "phone": "+961 71 222 810",
+      "history": [
+        {
+          "date": "2026-04-24",
+          "serviceId": "pediatrics",
+          "doctorId": "d2",
+          "notes": "Routine pediatric wellness check completed.",
+          "followUp": "Next vaccine appointment in 6 months."
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Nabil Aoun",
+      "email": "nabil.aoun@example.com",
+      "phone": "+961 76 902 118",
+      "history": [
+        {
+          "date": "2026-05-10",
+          "serviceId": "cardiology",
+          "doctorId": "d3",
+          "notes": "Blood pressure improved. ECG normal.",
+          "followUp": "Continue monitoring blood pressure twice weekly."
+        }
+      ]
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a1",
+      "reference": "MQ-10482",
+      "patientName": "Adam Khalil",
+      "email": "adam.khalil@example.com",
+      "serviceId": "general",
+      "doctorId": "d1",
+      "date": "2026-05-24",
+      "time": "09:00",
+      "status": "confirmed",
+      "paid": true
+    },
+    {
+      "id": "a2",
+      "reference": "MQ-10493",
+      "patientName": "Sara Haddad",
+      "email": "sara.haddad@example.com",
+      "serviceId": "pediatrics",
+      "doctorId": "d2",
+      "date": "2026-05-24",
+      "time": "10:00",
+      "status": "confirmed",
+      "paid": false
+    },
+    {
+      "id": "a3",
+      "reference": "MQ-10502",
+      "patientName": "Nabil Aoun",
+      "email": "nabil.aoun@example.com",
+      "serviceId": "cardiology",
+      "doctorId": "d3",
+      "date": "2026-05-25",
+      "time": "11:00",
+      "status": "confirmed",
+      "paid": true
+    },
+    {
+      "id": "a4",
+      "reference": "MQ-10513",
+      "patientName": "Lea Karam",
+      "email": "lea.karam@example.com",
+      "serviceId": "dermatology",
+      "doctorId": "d4",
+      "date": "2026-05-24",
+      "time": "13:00",
+      "status": "completed",
+      "paid": true
+    },
+    {
+      "id": "a5",
+      "reference": "MQ-10528",
+      "patientName": "Mira Saliba",
+      "email": "mira.saliba@example.com",
+      "serviceId": "lab",
+      "doctorId": "d5",
+      "date": "2026-05-24",
+      "time": "09:30",
+      "status": "completed",
+      "paid": true
+    },
+    {
+      "id": "a-1779911554166",
+      "reference": "MQ-25622",
+      "patientName": "Jamal Al Jamal",
+      "email": "jaamal@gmail.com",
+      "serviceId": "cardiology",
+      "doctorId": "d3",
+      "date": "2026-06-30",
+      "time": "09:30",
+      "status": "confirmed",
+      "paid": false
+    },
+    {
+      "id": "a-1779911656970",
+      "reference": "MQ-93676",
+      "patientName": "Ali",
+      "email": "ali@gmail.com",
+      "serviceId": "lab",
+      "doctorId": "d1",
+      "date": "2026-06-29",
+      "time": "09:00",
+      "status": "confirmed",
+      "paid": false
+    }
+  ],
+  "queue": [
+    {
+      "id": "q1",
+      "ticket": "Q-021",
+      "name": "Tarek Saab",
+      "serviceId": "general",
+      "priority": "normal",
+      "joinedAt": "2026-05-24T08:30:00.000Z"
+    },
+    {
+      "id": "q2",
+      "ticket": "Q-022",
+      "name": "Hala Wehbe",
+      "serviceId": "lab",
+      "priority": "urgent",
+      "joinedAt": "2026-05-24T08:44:00.000Z"
+    },
+    {
+      "id": "q3",
+      "ticket": "Q-023",
+      "name": "Rami Daher",
+      "serviceId": "dermatology",
+      "priority": "normal",
+      "joinedAt": "2026-05-24T08:52:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "role": "patient",
+      "message": "Booking confirmed for your general consultation.",
+      "type": "success",
+      "createdAt": "2026-05-24"
+    },
+    {
+      "id": "n2",
+      "role": "patient",
+      "message": "Your appointment is tomorrow at 11:00.",
+      "type": "info",
+      "createdAt": "2026-05-24"
+    },
+    {
+      "id": "n3",
+      "role": "admin",
+      "message": "Queue volume is above the daily average.",
+      "type": "warning",
+      "createdAt": "2026-05-24"
+    },
+    {
+      "id": "n4",
+      "role": "accountant",
+      "message": "Payroll review is ready for active doctors.",
+      "type": "info",
+      "createdAt": "2026-05-24"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "e1",
+      "date": "2026-05-21",
+      "category": "Medical supplies",
+      "description": "Disposable gloves and sterilization kits",
+      "amount": 420
+    },
+    {
+      "id": "e2",
+      "date": "2026-05-15",
+      "category": "Rent",
+      "description": "Clinic floor monthly rent",
+      "amount": 1800
+    },
+    {
+      "id": "e3",
+      "date": "2026-05-10",
+      "category": "Software",
+      "description": "Scheduling kiosk subscription",
+      "amount": 150
+    }
+  ],
+  "payroll": [
+    {
+      "doctorId": "d1",
+      "status": "Pending",
+      "availableDate": "2026-05-29"
+    },
+    {
+      "doctorId": "d2",
+      "status": "Approved",
+      "availableDate": "2026-05-29"
+    },
+    {
+      "doctorId": "d3",
+      "status": "Pending",
+      "availableDate": "2026-05-29"
+    },
+    {
+      "doctorId": "d4",
+      "status": "Paid",
+      "availableDate": "2026-05-22"
+    },
+    {
+      "doctorId": "d5",
+      "status": "Pending",
+      "availableDate": "2026-05-29"
+    }
+  ],
+  "timeSlots": [
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "14:30",
+    "15:00"
+  ]
+}

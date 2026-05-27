@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | MediQueue</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="dashboard-shell" id="admin-dashboard">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav aria-label="Dashboard navigation">
+        <a class="active" href="dashboard-admin.html">Admin Dashboard</a>
+        <a href="dashboard-doctor.html">Doctor View</a>
+        <a href="dashboard-accountant.html">Accountant View</a>
+        <a href="../login.html">Switch Role</a>
+        <a href="../index.html">Public Site</a>
+      </nav>
+    </aside>
+    <main class="dashboard-main">
+      <header class="dashboard-head">
+        <div>
+          <span class="eyebrow">Clinic operations</span>
+          <h1>Admin command center</h1>
+          <p>Track capacity, doctors, queues, services, and operational analytics.</p>
+        </div>
+        <div class="button-row">
+          <button class="btn secondary" id="admin-call-next" type="button">Call Next</button>
+          <button class="btn primary" id="admin-add-urgent" type="button">Add Urgent</button>
+          <button class="btn ghost" id="admin-mark-served" type="button">Mark Served</button>
+        </div>
+      </header>
+
+      <section id="admin-stats" class="stat-grid"></section>
+
+      <section class="dashboard-grid equal">
+        <article class="card">
+          <h2>Manage doctors</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Name</th><th>Specialty</th><th>Room</th><th>Status</th></tr></thead>
+              <tbody id="manage-doctors"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Manage services</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Service</th><th>Duration</th><th>Price</th><th>Capacity</th></tr></thead>
+              <tbody id="manage-services"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Queue control</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Position</th><th>Ticket</th><th>Name</th><th>Service</th><th>Priority</th></tr></thead>
+              <tbody id="admin-queue"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Queue activity</h2>
+          <div id="queue-activity" class="activity-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid equal">
+        <article class="card">
+          <h2>Recent notifications</h2>
+          <div id="admin-notifications" class="notice-list"></div>
+        </article>
+        <article class="card">
+          <h2>Capacity settings</h2>
+          <p>Capacity is simulated per service and used by the booking page to disable full time slots.</p>
+          <dl class="meta-grid">
+            <div><dt>General</dt><dd>2 per slot</dd></div>
+            <div><dt>Cardiology</dt><dd>1 per slot</dd></div>
+            <div><dt>Lab</dt><dd>3 per slot</dd></div>
+            <div><dt>Urgent queue</dt><dd>Priority sort</dd></div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Doctor activity</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Doctor</th><th>Specialty</th><th>Room</th><th>Visits</th><th>Progress</th></tr></thead>
+              <tbody id="doctor-activity"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Revenue trend preview</h2>
+          <div id="revenue-trend" class="trend-chart"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="card">
+          <h2>Analytics</h2>
+          <div id="analytics-grid" class="stat-grid"></div>
+        </article>
+        <article class="card">
+          <div class="split-line"><h2>System activity log</h2><button class="btn small ghost" data-expand-target="system-activity" type="button">Hide Details</button></div>
+          <div id="system-activity" class="activity-list"></div>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="split-line">
+          <div>
+            <span class="eyebrow">Platform customization</span>
+            <h2>Website content and branding</h2>
+          </div>
+          <span class="badge live">Saved locally</span>
+        </div>
+        <form id="customization-form" class="form-grid customization-form">
+          <div class="field"><label for="clinic-name">Clinic name</label><input id="clinic-name" required></div>
+          <div class="field"><label for="hero-tagline">Homepage hero tagline</label><input id="hero-tagline" required></div>
+          <div class="field"><label for="accent-color">Accent color</label><input id="accent-color" type="color"></div>
+          <div class="field checkbox-field"><label for="banners-enabled">Show promotion banners</label><input id="banners-enabled" type="checkbox"></div>
+          <div class="full"><button class="btn primary" type="submit">Save Branding Settings</button></div>
+        </form>
+        <div id="customization-result" hidden></div>
+
+        <div class="dashboard-grid equal customization-grid">
+          <article>
+            <h3>Homepage feature cards</h3>
+            <form id="feature-form" class="form-grid">
+              <input id="feature-id" type="hidden">
+              <div class="field"><label for="feature-title">Title</label><input id="feature-title" required placeholder="Online Booking"></div>
+              <div class="field"><label for="feature-link">Link</label><input id="feature-link" placeholder="booking.html"></div>
+              <div class="field full"><label for="feature-description">Description</label><input id="feature-description" required placeholder="Short feature description"></div>
+              <div class="full"><button class="btn secondary" type="submit">Save Feature Card</button></div>
+            </form>
+            <div id="feature-list" class="management-list"></div>
+          </article>
+          <article>
+            <h3>Promotional banners</h3>
+            <form id="banner-form" class="form-grid">
+              <input id="banner-id" type="hidden">
+              <div class="field"><label for="banner-title">Title</label><input id="banner-title" required placeholder="Free consultation"></div>
+              <div class="field checkbox-field"><label for="banner-active">Banner active</label><input id="banner-active" type="checkbox" checked></div>
+              <div class="field full"><label for="banner-description">Description</label><input id="banner-description" required placeholder="Promotion details"></div>
+              <div class="full"><button class="btn secondary" type="submit">Save Banner</button></div>
+            </form>
+            <div id="banner-list" class="management-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

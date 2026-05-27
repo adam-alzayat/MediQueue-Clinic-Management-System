@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | MediQueue</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">MQ</span><span>MediQueue</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a data-active href="index.html">Home</a>
+        <a data-active href="services.html">Services</a>
+        <a data-active href="booking.html">Booking</a>
+        <a data-active href="queue.html">Queue</a>
+        <a data-active href="login.html">Demo Login</a>
+      </nav>
+    </div>
+  </header>
+  <main class="section">
+    <div class="container form-layout">
+      <section class="card">
+        <span class="eyebrow">Appointment booking</span>
+        <h1>Reserve a clinic time slot</h1>
+        <p>Unavailable slots are disabled using current mock appointments plus bookings saved in localStorage.</p>
+        <form id="booking-form" class="form-grid">
+          <div class="field"><label for="booking-name">Patient name</label><input id="booking-name" required placeholder="Full name"></div>
+          <div class="field"><label for="booking-email">Email</label><input id="booking-email" type="email" required placeholder="name@example.com"></div>
+          <div class="field"><label for="booking-service">Service</label><select id="booking-service" required></select></div>
+          <div class="field"><label for="booking-doctor">Doctor</label><select id="booking-doctor" required></select></div>
+          <div class="field"><label for="booking-date">Date</label><input id="booking-date" type="date" required></div>
+          <div class="field"><label for="booking-time">Time slot</label><select id="booking-time" required></select></div>
+          <div class="full"><small id="slot-hint" class="hint"></small></div>
+          <div class="full"><button class="btn primary" type="submit">Confirm Booking</button></div>
+        </form>
+        <div id="booking-result" hidden></div>
+      </section>
+      <aside class="card">
+        <h2>Capacity rules</h2>
+        <p>Each service has a slot limit. The system checks existing appointments, local bookings, doctor assignment, and duplicate patient time conflicts before saving.</p>
+        <dl class="meta-grid">
+          <div><dt>Storage</dt><dd>localStorage</dd></div>
+          <div><dt>Reference</dt><dd>Generated</dd></div>
+          <div><dt>Status</dt><dd>Confirmed</dd></div>
+          <div><dt>Payment</dt><dd>Unpaid by default</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </main>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
