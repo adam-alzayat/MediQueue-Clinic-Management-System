@@ -20,6 +20,10 @@ MediQueue is a full-stack clinic booking, queue, and management platform MVP bui
 - Admin platform customization for clinic name, hero tagline, accent color, homepage features, and promotional banners
 - System activity log, revenue trend previews, queue activity, and richer role dashboards
 
+## Live Demo
+
+[Open MediQueue](https://adam-alzayat.github.io/MediQueue-Clinic-Management-System/)
+
 ## Technologies Used
 
 - HTML
@@ -27,8 +31,6 @@ MediQueue is a full-stack clinic booking, queue, and management platform MVP bui
 - JavaScript
 - localStorage
 - Static mock data
-- Node.js
-- Express
 - CORS
 - Node.js
 - Express.js
@@ -121,7 +123,7 @@ http://localhost:8000
 
 ## Running the Backend
 
-The backend is independent for now. The frontend still uses localStorage and does not require the backend to run.
+The frontend supports both backend API integration and localStorage fallback for standalone or offline usage.
 
 ```bash
 cd backend
@@ -167,3 +169,26 @@ Available API routes:
 - Add patient search and filtering
 - Add role permissions and audit logs
 - Add automated tests for booking, queue, and payroll calculations
+
+## Screenshots
+
+### Homepage
+![Homepage](assets/images/homepage-hero.png)
+
+### Booking Page
+![Booking](assets/images/booking-page.png)
+
+### Queue System
+![Queue](assets/images/queue-system.png)
+
+### Patient Dashboard
+![Patient](assets/images/patient-dashboard.png)
+
+### Doctor Dashboard
+![Doctor](assets/images/doctor-dashboard1.png)
+
+### Admin Dashboard
+![Admin](assets/images/admin-dashboard-1.png)
+
+### Accountant Dashboard
+![Accountant](assets/images/accountant-dashboard-1.png)
